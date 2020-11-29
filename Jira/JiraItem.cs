@@ -1,25 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace Jira
 {
     public abstract class JiraItem
     {
-        public string ID;
+        public int ID;
         public string autor;
-        public string date;
-        public string description;
+        public DateTime date;
+        public string title;
         public string enviroment;
-        public string prerequisites;
-        public string stepsDetails;
-        public string actualResult;
-        public string expectedResult;
-        public string passOrFail;
-
-        public string priority;
-        public string status;
-        public string stepsToReproduce;
-
+        public List<string> prerequisitesList = new List<string>();
+        public List<string> stepsList = new List<string>();
+        public List<string> actualResultList = new List<string>();
+        public List<string> expectedResultList = new List<string>();
+        public enum statusEnum
+        {
+            status
+        }
+        public string remarks;
     }
 }
