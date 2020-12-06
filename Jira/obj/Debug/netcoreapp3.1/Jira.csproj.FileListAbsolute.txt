@@ -11,3 +11,16 @@ C:\Users\Radek\source\repos\Jira\Jira\obj\Debug\netcoreapp3.1\Jira.csproj.CoreCo
 C:\Users\Radek\source\repos\Jira\Jira\obj\Debug\netcoreapp3.1\Jira.dll
 C:\Users\Radek\source\repos\Jira\Jira\obj\Debug\netcoreapp3.1\Jira.pdb
 C:\Users\Radek\source\repos\Jira\Jira\obj\Debug\netcoreapp3.1\Jira.genruntimeconfig.cache
+C:\Users\Radek\source\Jira-master\Jira\bin\Debug\netcoreapp3.1\Jira.exe
+C:\Users\Radek\source\Jira-master\Jira\bin\Debug\netcoreapp3.1\Jira.deps.json
+C:\Users\Radek\source\Jira-master\Jira\bin\Debug\netcoreapp3.1\Jira.runtimeconfig.json
+C:\Users\Radek\source\Jira-master\Jira\bin\Debug\netcoreapp3.1\Jira.runtimeconfig.dev.json
+C:\Users\Radek\source\Jira-master\Jira\bin\Debug\netcoreapp3.1\Jira.dll
+C:\Users\Radek\source\Jira-master\Jira\bin\Debug\netcoreapp3.1\Jira.pdb
+C:\Users\Radek\source\Jira-master\Jira\obj\Debug\netcoreapp3.1\Jira.csprojAssemblyReference.cache
+C:\Users\Radek\source\Jira-master\Jira\obj\Debug\netcoreapp3.1\Jira.AssemblyInfoInputs.cache
+C:\Users\Radek\source\Jira-master\Jira\obj\Debug\netcoreapp3.1\Jira.AssemblyInfo.cs
+C:\Users\Radek\source\Jira-master\Jira\obj\Debug\netcoreapp3.1\Jira.csproj.CoreCompileInputs.cache
+C:\Users\Radek\source\Jira-master\Jira\obj\Debug\netcoreapp3.1\Jira.dll
+C:\Users\Radek\source\Jira-master\Jira\obj\Debug\netcoreapp3.1\Jira.pdb
+C:\Users\Radek\source\Jira-master\Jira\obj\Debug\netcoreapp3.1\Jira.genruntimeconfig.cache

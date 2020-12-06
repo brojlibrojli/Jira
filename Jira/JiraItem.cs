@@ -6,7 +6,7 @@ namespace Jira
     public abstract class JiraItem
     {
         public int ID;
-        public string autor;
+        public string author;
         public DateTime date;
         public string title;
         public string enviroment;
