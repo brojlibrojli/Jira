@@ -8,7 +8,7 @@
         integration,
         usability,
         database,
-        secuity,
+        security,
         userAcceptance
     }
 

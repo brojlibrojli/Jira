@@ -6,14 +6,17 @@ namespace Jira
 {
     public class Bug : JiraItem
     {
-        public enum priority
+        public string priority;
+        public enum BugPriority
         {
             low,
             medium,
             high,
             immediate
         }
-        public enum severity
+
+        public string severity;
+        public enum BugSeverity
         {
             low,
             minor,
