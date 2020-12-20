@@ -1,0 +1,24 @@
+<Bug-xml>
+<ID>2012</ID>
+<Author>radek</Author>
+<Title>jirer bug test case</Title>
+<Enviroment-Version>visual 2019 win 10 64bit</Enviroment-Version>
+<Bug-priority>immediate</Bug-priority>
+<Bug-severity>low</Bug-severity>
+<Prerequisites>visual 2019 own</Prerequisites>
+<Prerequisites>wind 10 64bit own</Prerequisites>
+<Prerequisites>good intention own</Prerequisites>
+
+<StepsToReproduce>visual 2019 own</StepsToReproduce>
+<StepsToReproduce>wind 10 64bit own</StepsToReproduce>
+<StepsToReproduce>good intention own</StepsToReproduce>
+
+<ActualResults>visual 2019 own</ActualResults>
+<ActualResults>wind 10 64bit own</ActualResults>
+<ActualResults>good intention own</ActualResults>
+
+<ExpectedResults>visual 2019 own</ExpectedResults>
+<ExpectedResults>wind 10 64bit own</ExpectedResults>
+<ExpectedResults>good intention own</ExpectedResults>
+
+</Bug-xml>

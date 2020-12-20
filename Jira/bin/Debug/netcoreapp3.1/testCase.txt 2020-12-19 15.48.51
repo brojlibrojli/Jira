@@ -1,0 +1,17 @@
+<TestCase-xml>
+<ID>1</ID>
+<Author>n</Author>
+<IsAutomatedTest>False</IsAutomatedTest>
+<TestCategory>functionality</TestCategory>
+<Title>n</Title>
+<Enviroment-Version>n</Enviroment-Version>
+System.Collections.Generic.List`1[System.String]
+System.Collections.Generic.List`1[System.String]
+System.Collections.Generic.List`1[System.String]
+System.Collections.Generic.List`1[System.String]
+System.Collections.Generic.List`1[System.String]
+<StepsToReproduce>System.Collections.Generic.List`1[System.String]</StepsToReproduce>
+<ActualResults>System.Collections.Generic.List`1[System.String]</ActualResults>
+<ExpectedResults>System.Collections.Generic.List`1[System.String]</ExpectedResults>
+<Pass-Fail> False</Pass-Fail>
+</TestCase-xml>

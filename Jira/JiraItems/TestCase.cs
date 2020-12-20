@@ -6,8 +6,8 @@ namespace Jira
 {
     public class TestCase : JiraItem
     {
-        public bool isAutomated;
-        public bool isPassed;
+        public static bool isAutomated;
+        public static bool isPassed;
         public string testCategory;
     }
 }
