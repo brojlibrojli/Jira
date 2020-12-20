@@ -1,0 +1,15 @@
+<TestCase-xml>
+<ID>123</ID>
+<Author>radek</Author>
+<IsAutomatedTest>False</IsAutomatedTest>
+<TestCategory>functionality</TestCategory>
+<Title>jirer test case</Title>
+<Enviroment-Version>visual19 win10 64bit</Enviroment-Version>
+<Prerequisites>vis win own</Prerequisites>
+<Prerequisites>prereq own</Prerequisites>
+
+<StepsToReproduce>vis win own</StepsToReproduce><StepsToReproduce>prereq own</StepsToReproduce>
+<ActualResults>vis win own</ActualResults><ActualResults>prereq own</ActualResults>
+<ExpectedResults>vis win own</ExpectedResults><ExpectedResults>prereq own</ExpectedResults>
+<Pass-Fail> False</Pass-Fail>
+</TestCase-xml>

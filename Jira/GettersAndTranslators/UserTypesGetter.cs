@@ -4,22 +4,27 @@ namespace Jira
 {
     public static class UserTypesGetter
     {
-        public static void getID(TestCase TestCase)
+        public static void getID(JiraItem jiraItem)
         {
-            Console.Write("Test case ID: "); bool isIntID = int.TryParse(Console.ReadLine(), out TestCase.ID);
+            Console.Write("ID: "); bool isIntID = int.TryParse(Console.ReadLine(), out jiraItem.ID);
             while (!isIntID)
             {
                 Console.WriteLine("Insert number: ");
-                isIntID = int.TryParse(Console.ReadLine(), out TestCase.ID);
+                isIntID = int.TryParse(Console.ReadLine(), out jiraItem.ID);
             }
         }
 
-        public static void getAuthor(TestCase TestCase)
+        public static void getAuthor(JiraItem jiraItem)
         {
-            Console.Write("Autor: "); TestCase.author = (Console.ReadLine());
+            Console.Write("Author: "); jiraItem.author = (Console.ReadLine());
+            while (jiraItem.author.Length < 1)
+            {
+                Console.WriteLine("The field cannot be empty");
+                Console.Write("Author: "); jiraItem.author = (Console.ReadLine());
+            }
         }
 
-        public static void getIsAutomated(TestCase TestCase)
+        public static void getIsAutomated(TestCase testCase)
         {
             Console.WriteLine("Is that test automatic? (y/n):");
             char isAutomaticAnswer;
@@ -94,19 +99,97 @@ namespace Jira
                 TestCase.testCategory = TestCategory.security.ToString();
             }
         }
-        public static void getTittleDescription(TestCase TestCase)
+        public static void getTittleDescription(JiraItem jiraItem)
         {
-            Console.Write("Title/Description: "); TestCase.title = (Console.ReadLine());
+            Console.Write("Title/Description: "); jiraItem.title = (Console.ReadLine());
+            while(jiraItem.title.Length < 1)
+            {
+                Console.WriteLine("The field cannot be empty");
+                Console.Write("Title/Description: "); jiraItem.title = (Console.ReadLine());
+            }
         }
 
-        public static void getEnviromentAndVersion(TestCase TestCase)
+        public static void getEnviromentAndVersion(JiraItem jiraItem)
         {
-            Console.Write("Enviroment and version: "); TestCase.enviroment = (Console.ReadLine());
+            Console.Write("Enviroment and version: "); jiraItem.enviroment = (Console.ReadLine());
+            while (jiraItem.enviroment.Length < 1)
+            {
+                Console.WriteLine("The field cannot be empty");
+                Console.Write("Enviroment and version: "); jiraItem.enviroment = (Console.ReadLine());
+            }
         }
 
-        public static void getPrerequisites(TestCase TestCase)
+        public static void getPriority(Bug Bug)
         {
-            Console.Write("Prerequisites: "); TestCase.prerequisitesList.Add(Console.ReadLine());
+            Console.WriteLine("Bug priority: " +
+            "\n" + "a: low" +
+            "\n" + "b: medium" +
+            "\n" + "c: high" +
+            "\n" + "d: immediate");
+
+            char bugPriorityAnswer;
+            bool isCharBugPriority = char.TryParse(Console.ReadLine(), out bugPriorityAnswer);
+            while (((!isCharBugPriority) || (bugPriorityAnswer != 'a') && (bugPriorityAnswer != 'b')
+                && (bugPriorityAnswer != 'c') && (bugPriorityAnswer != 'd')))
+            {
+                Console.WriteLine("Type one of the letters: ");
+                isCharBugPriority = char.TryParse(Console.ReadLine(), out bugPriorityAnswer);
+            }
+            if (bugPriorityAnswer == 'a')
+            {
+                Bug.priority = BugPriority.low.ToString();
+            }
+            else if (bugPriorityAnswer == 'b')
+            {
+                Bug.priority = BugPriority.medium.ToString();
+            }
+            else if (bugPriorityAnswer == 'c')
+            {
+                Bug.priority = BugPriority.high.ToString(); ;
+            }
+            else if (bugPriorityAnswer == 'd')
+            {
+                Bug.priority = BugPriority.immediate.ToString();
+            }
+        }
+
+        public static void getSeverity(Bug Bug)
+        {
+            Console.WriteLine("Bug severity: " +
+            "\n" + "a: low" +
+            "\n" + "b: major" +
+            "\n" + "c: minor" +
+            "\n" + "d: critical");
+
+            char bugSeverityAnswer;
+            bool isCharBugSeverity = char.TryParse(Console.ReadLine(), out bugSeverityAnswer);
+            while (((!isCharBugSeverity) || (bugSeverityAnswer != 'a') && (bugSeverityAnswer != 'b')
+                && (bugSeverityAnswer != 'c') && (bugSeverityAnswer != 'd')))
+            {
+                Console.WriteLine("Type one of the letters: ");
+                isCharBugSeverity = char.TryParse(Console.ReadLine(), out bugSeverityAnswer);
+            }
+            if (bugSeverityAnswer == 'a')
+            {
+                Bug.severity = BugSeverity.low.ToString();
+            }
+            else if (bugSeverityAnswer == 'b')
+            {
+                Bug.severity = BugSeverity.major.ToString();
+            }
+            else if (bugSeverityAnswer == 'c')
+            {
+                Bug.severity = BugSeverity.minor.ToString();
+            }
+            else if (bugSeverityAnswer == 'd')
+            {
+                Bug.severity = BugSeverity.critical.ToString();
+            }
+        }
+
+        public static void getPrerequisites(JiraItem jiraItem)
+        {
+            Console.Write("Prerequisites: "); jiraItem.prerequisitesList.Add(Console.ReadLine());
             char answerAnotherPrereq;
             do
             {
@@ -116,11 +199,10 @@ namespace Jira
                 {
                     Console.Write("Type y or n: "); char.TryParse(Console.ReadLine(), out answerAnotherPrereq);
                 }
-
                 if (answerAnotherPrereq == 'y')
                 {
                     Console.Write("Another prerequisites: ");
-                    TestCase.prerequisitesList.Add(Console.ReadLine());
+                    jiraItem.prerequisitesList.Add(Console.ReadLine());
                 }
                 else
                 {
@@ -129,9 +211,9 @@ namespace Jira
             } while (answerAnotherPrereq == 'y');
         }
 
-        public static void getStepsList(TestCase TestCase)
+        public static void getStepsList(JiraItem jiraItem)
         {
-            Console.Write("Steps details: "); TestCase.stepsList.Add(Console.ReadLine());
+            Console.Write("Steps details: "); jiraItem.stepsList.Add(Console.ReadLine());
             char answerAnotherSteps;
             do
             {
@@ -144,7 +226,7 @@ namespace Jira
                 if (answerAnotherSteps == 'y')
                 {
                     Console.WriteLine("another steps: ");
-                    TestCase.stepsList.Add(Console.ReadLine());
+                    jiraItem.stepsList.Add(Console.ReadLine());
                 }
                 else
                 {
@@ -153,9 +235,9 @@ namespace Jira
             } while (answerAnotherSteps == 'y');
         }
 
-        public static void getActualResultList(TestCase TestCase)
+        public static void getActualResultList(JiraItem jiraItem)
         {
-            Console.Write("Actual result: "); TestCase.actualResultList.Add(Console.ReadLine());
+            Console.Write("Actual result: "); jiraItem.actualResultList.Add(Console.ReadLine());
             char answerAnotherActual;
             do
             {
@@ -168,7 +250,7 @@ namespace Jira
                 if (answerAnotherActual == 'y')
                 {
                     Console.WriteLine("another actual result: ");
-                    TestCase.actualResultList.Add(Console.ReadLine());
+                    jiraItem.actualResultList.Add(Console.ReadLine());
                 }
                 else
                 {
@@ -177,9 +259,9 @@ namespace Jira
             } while (answerAnotherActual == 'y');
         }
 
-        public static void getExpectedResultList(TestCase TestCase)
+        public static void getExpectedResultList(JiraItem jiraItem)
         {
-            Console.Write("Expected result: "); TestCase.expectedResultList.Add(Console.ReadLine());
+            Console.Write("Expected result: "); jiraItem.expectedResultList.Add(Console.ReadLine());
             char answerExpected;
             do
             {
@@ -192,7 +274,7 @@ namespace Jira
                 if (answerExpected == 'y')
                 {
                     Console.WriteLine("another expected result: ");
-                    TestCase.expectedResultList.Add(Console.ReadLine());
+                    jiraItem.expectedResultList.Add(Console.ReadLine());
                 }
                 else
                 {
