@@ -14,6 +14,7 @@ namespace Jira
         public List<string> stepsList = new List<string>();
         public List<string> actualResultList = new List<string>();
         public List<string> expectedResultList = new List<string>();
+        public List<string> testCaseResultList = new List<string>();
         public enum statusEnum
         {
             status

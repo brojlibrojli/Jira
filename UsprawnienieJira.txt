@@ -1,0 +1,7 @@
+-dodanie rozszerzenia xml dla plikow, naprawa txt <---> data w nazwie, i zamiana txt na xml
+-dodanie naglowka xml w pliku
+-nazwy metod z duzej litery
+-klasa styczna wywolywana jest z nazwa klasy, stad problem z namespace, UserInputGetter.Translate
+
+-usuniecie pustych linii: IsNullOrWhiteSpace w klasie string
+-polaczenie Steps + ActualResults
