@@ -7,7 +7,7 @@ namespace Jira
         public static void getID(JiraItem jiraItem)
         {
             Console.Write("ID: "); bool isIntID = int.TryParse(Console.ReadLine(), out jiraItem.ID);
-            while (!isIntID)
+            while ((!isIntID) || (isIntID.ToString().Length == 0))
             {
                 Console.WriteLine("Insert number: ");
                 isIntID = int.TryParse(Console.ReadLine(), out jiraItem.ID);
@@ -102,7 +102,7 @@ namespace Jira
         public static void getTittleDescription(JiraItem jiraItem)
         {
             Console.Write("Title/Description: "); jiraItem.title = (Console.ReadLine());
-            while(jiraItem.title.Length < 1)
+            while (jiraItem.title.Length < 1)
             {
                 Console.WriteLine("The field cannot be empty");
                 Console.Write("Title/Description: "); jiraItem.title = (Console.ReadLine());
@@ -189,8 +189,18 @@ namespace Jira
 
         public static void getPrerequisites(JiraItem jiraItem)
         {
-            Console.Write("Prerequisites: "); jiraItem.prerequisitesList.Add(Console.ReadLine());
+            Console.Write("Prerequisites: ");
+            string tempPrereq = Console.ReadLine();
+            while (tempPrereq.Length == 0)
+            {
+                Console.WriteLine("The field cannot be empty");
+                tempPrereq = Console.ReadLine();
+            }
+
+            jiraItem.prerequisitesList.Add(tempPrereq);
+
             char answerAnotherPrereq;
+
             do
             {
                 Console.Write("Want to add another prerequisites (y/n)? :");
@@ -202,7 +212,13 @@ namespace Jira
                 if (answerAnotherPrereq == 'y')
                 {
                     Console.Write("Another prerequisites: ");
-                    jiraItem.prerequisitesList.Add(Console.ReadLine());
+                    string tempAnotherPrereq = Console.ReadLine();
+                    while (tempAnotherPrereq.Length == 0)
+                    {
+                        Console.WriteLine("The field cannot be empty");
+                        tempAnotherPrereq = Console.ReadLine();
+                    }
+                    jiraItem.prerequisitesList.Add(tempAnotherPrereq);
                 }
                 else
                 {
@@ -213,7 +229,15 @@ namespace Jira
 
         public static void getStepsList(JiraItem jiraItem)
         {
-            Console.Write("Steps details: "); jiraItem.stepsList.Add(Console.ReadLine());
+            Console.Write("Steps details: ");
+            string tempStepDetails = Console.ReadLine();
+            while (tempStepDetails.Length == 0)
+            {
+                Console.WriteLine("The field cannot be empty");
+                tempStepDetails = Console.ReadLine();
+            }
+            jiraItem.stepsList.Add(tempStepDetails);
+
             char answerAnotherSteps;
             do
             {
@@ -221,12 +245,19 @@ namespace Jira
                 bool isCharSteps = char.TryParse(Console.ReadLine(), out answerAnotherSteps);
                 while ((answerAnotherSteps != 'y') && (answerAnotherSteps != 'n'))
                 {
-                    Console.Write("Type y or n: "); char.TryParse(Console.ReadLine(), out answerAnotherSteps);
+                    Console.Write("Type y or n: ");
+                    char.TryParse(Console.ReadLine(), out answerAnotherSteps);
                 }
                 if (answerAnotherSteps == 'y')
                 {
                     Console.WriteLine("another steps: ");
-                    jiraItem.stepsList.Add(Console.ReadLine());
+                    string tempAnotherSteps = Console.ReadLine();
+                    while (tempAnotherSteps.Length == 0)
+                    {
+                        Console.WriteLine("The field cannot be empty");
+                        tempAnotherSteps = Console.ReadLine();
+                    }
+                    jiraItem.stepsList.Add(tempAnotherSteps);
                 }
                 else
                 {
@@ -235,9 +266,77 @@ namespace Jira
             } while (answerAnotherSteps == 'y');
         }
 
+
+        public static void getTestCaseResultList(JiraItem jiraItem)
+        {
+            Console.Write("Actual result: ");
+            string tempActualResult = Console.ReadLine();
+
+            while (tempActualResult.Length == 0)
+            {
+                Console.WriteLine("The field cannot be empty");
+                tempActualResult = Console.ReadLine();
+            }
+
+            Console.Write("Expected result: ");
+            string tempExpectedResult = Console.ReadLine();
+            while (tempExpectedResult.Length == 0)
+            {
+                Console.WriteLine("The field cannot be epmty");
+                tempExpectedResult = Console.ReadLine();
+            }
+
+            jiraItem.testCaseResultList.Add(tempActualResult + " / " + tempExpectedResult);
+
+            char answerAnotherResults;
+            do
+            {
+                Console.Write("Want to add more for actual result? (y/n):");
+                bool isCharActual = char.TryParse(Console.ReadLine(), out answerAnotherResults);
+                while ((answerAnotherResults != 'y') && (answerAnotherResults != 'n'))
+                {
+                    Console.Write("Type y or n: ");
+                    char.TryParse(Console.ReadLine(), out answerAnotherResults);
+                }
+                if (answerAnotherResults == 'y')
+                {
+                    Console.WriteLine("another actual result: ");
+                    string tempAnotherActual = Console.ReadLine();
+                    while (tempAnotherActual.Length == 0)
+                    {
+                        Console.WriteLine("The field cannot be epmty");
+                        tempAnotherActual = Console.ReadLine();
+                    }
+
+                    Console.WriteLine("another expected result: ");
+                    string tempAnotherExpected = Console.ReadLine();
+                    while (tempAnotherExpected.Length == 0)
+                    {
+                        Console.WriteLine("The field cannot be epmty");
+                        tempAnotherExpected = Console.ReadLine();
+                    }
+                    
+                    jiraItem.testCaseResultList.Add(tempAnotherActual + " / " + tempAnotherExpected);
+                }
+                else
+                {
+                    break;
+                }
+            } while (answerAnotherResults == 'y');
+        }
         public static void getActualResultList(JiraItem jiraItem)
         {
-            Console.Write("Actual result: "); jiraItem.actualResultList.Add(Console.ReadLine());
+            Console.Write("Actual result: ");
+            string tempActualResult = Console.ReadLine();
+
+            while (tempActualResult.Length == 0)
+            {
+                Console.WriteLine("The field cannot be empty");
+                tempActualResult = Console.ReadLine();
+            }
+
+            jiraItem.actualResultList.Add(tempActualResult);
+
             char answerAnotherActual;
             do
             {
@@ -245,12 +344,19 @@ namespace Jira
                 bool isCharActual = char.TryParse(Console.ReadLine(), out answerAnotherActual);
                 while ((answerAnotherActual != 'y') && (answerAnotherActual != 'n'))
                 {
-                    Console.Write("Type y or n: "); char.TryParse(Console.ReadLine(), out answerAnotherActual);
+                    Console.Write("Type y or n: ");
+                    char.TryParse(Console.ReadLine(), out answerAnotherActual);
                 }
                 if (answerAnotherActual == 'y')
                 {
                     Console.WriteLine("another actual result: ");
-                    jiraItem.actualResultList.Add(Console.ReadLine());
+                    string tempAnotherActual = Console.ReadLine();
+                    while (tempAnotherActual.Length == 0)
+                    {
+                        Console.WriteLine("The field cannot be epmty");
+                        tempAnotherActual = Console.ReadLine();
+                    }
+                    jiraItem.actualResultList.Add(tempAnotherActual);
                 }
                 else
                 {
@@ -261,38 +367,63 @@ namespace Jira
 
         public static void getExpectedResultList(JiraItem jiraItem)
         {
-            Console.Write("Expected result: "); jiraItem.expectedResultList.Add(Console.ReadLine());
-            char answerExpected;
+            Console.Write("Expected result: ");
+            string tempExpected = Console.ReadLine();
+            while (tempExpected.Length == 0)
+            {
+                Console.WriteLine("The field cannot be epmty");
+                tempExpected = Console.ReadLine();
+            }
+
+            jiraItem.expectedResultList.Add(tempExpected);
+            
+            
+            char answerAnotherExpected;
             do
             {
                 Console.Write("Want to add more for expected result? (y/n):");
-                bool isCharActual = char.TryParse(Console.ReadLine(), out answerExpected);
-                while ((answerExpected != 'y') && (answerExpected != 'n'))
+                bool isCharActual = char.TryParse(Console.ReadLine(), out answerAnotherExpected);
+                while ((answerAnotherExpected != 'y') && (answerAnotherExpected != 'n'))
                 {
-                    Console.Write("Type y or n: "); char.TryParse(Console.ReadLine(), out answerExpected);
+                    Console.Write("Type y or n: "); 
+                    char.TryParse(Console.ReadLine(), out answerAnotherExpected);
                 }
-                if (answerExpected == 'y')
+                if (answerAnotherExpected == 'y')
                 {
                     Console.WriteLine("another expected result: ");
-                    jiraItem.expectedResultList.Add(Console.ReadLine());
+                    string tempAnotherExpected = Console.ReadLine();
+                    while (tempAnotherExpected.Length == 0)
+                    {
+                        Console.WriteLine("The field cannot be epmty");
+                        tempAnotherExpected = Console.ReadLine();
+                    }
+                    jiraItem.expectedResultList.Add(tempAnotherExpected);
                 }
                 else
                 {
                     break;
                 }
-            } while (answerExpected == 'y');
+            } while (answerAnotherExpected == 'y');
 
         }
         public static void getIsPassed(TestCase TestCase)
         {
             Console.Write("Pass/Fail (y/n): ");
-            char isPassAnser;
-            bool isCharIsPass = char.TryParse(Console.ReadLine(), out isPassAnser);
-            while ((!isCharIsPass) && ((isPassAnser != 'y') && (isPassAnser != 'n')))
+            char isPassAnswer;
+            bool isCharIsPass = char.TryParse(Console.ReadLine(), out isPassAnswer);
+            while ((!isCharIsPass) || ((isPassAnswer != 'y') && (isPassAnswer != 'n')))
             {
                 Console.WriteLine("Type y/n: ");
-                char.TryParse(Console.ReadLine(), out isPassAnser);
+                char.TryParse(Console.ReadLine(), out isPassAnswer);
             }
+            if (isPassAnswer == 'y')
+            {
+                TestCase.isPassed = true;
+            }    
+            else
+            {
+                TestCase.isPassed = false;
+            }    
         }
 
     }

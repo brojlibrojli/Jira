@@ -60,7 +60,7 @@
         public static string transStepsList(JiraItem jiraItem)
         {
             string actualItem = "";
-            foreach (var item in jiraItem.prerequisitesList)
+            foreach (var item in jiraItem.stepsList)
             {
                 actualItem += "<StepsToReproduce>" + item + "</StepsToReproduce>" + "\n";
             }
@@ -69,7 +69,7 @@
         public static string transActualResults(JiraItem jiraItem)
         {
             string actualItem = "";
-            foreach (var item in jiraItem.prerequisitesList)
+            foreach (var item in jiraItem.actualResultList)
             {
                 actualItem += "<ActualResults>" + item + "</ActualResults>" + "\n";
             }
@@ -78,7 +78,7 @@
         public static string transExpectedResults(JiraItem jiraItem)
         {
             string actualItem = "";
-            foreach (var item in jiraItem.prerequisitesList)
+            foreach (var item in jiraItem.expectedResultList)
             {
                 actualItem += "<ExpectedResults>" + item + "</ExpectedResults>" + "\n";
             }
@@ -86,7 +86,7 @@
         }
         public static string transIsPassed(TestCase TestCase)
         {
-            return "<Pass-Fail> " + TestCase.isPassed.ToString() + "</Pass-Fail>";
+            return "<Pass-Fail>" + TestCase.isPassed.ToString() + "</Pass-Fail>";
         }
 
         public static string mainTestCaseElementEnd()
